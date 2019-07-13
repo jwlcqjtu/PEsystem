@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>医院体检系统登录</title>
+<link href="css/login.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="js/jQuery1.7.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var $tab_li = $('#tab ul li');
+	$tab_li.hover(function(){
+		$(this).addClass('selected').siblings().removeClass('selected');
+		var index = $tab_li.index(this);
+		$('div.tab_box > div').eq(index).show().siblings().hide();
+	});	
+});
+</script>
+<script type="text/javascript">
+$(function(){
+/*用户登录信息验证*/
+$("#stu_username_hide").focus(function(){
+ var username = $(this).val();
+ if(username=='输入学号'){
+ $(this).val('');
+ }
+});
+$("#stu_username_hide").focusout(function(){
+ var username = $(this).val();
+ if(username==''){
+ $(this).val('输入学号');
+ }
+});
+$("#stu_password_hide").focus(function(){
+ var username = $(this).val();
+ if(username=='输入密码'){
+ $(this).val('');
+ }
+});
+$("#stu_password_hide").focusout(function(){
+ var username = $(this).val();
+ if(username==''){
+ $(this).val('输入密码');
+ }
+});
+
+/*医生登录信息验证*/
+$("#tea_username_hide").focus(function(){
+ var username1 = $(this).val();
+ if(username1=='输入医生编号'){
+ $(this).val('');
+ }
+});
+$("#tea_username_hide").focusout(function(){
+ var username1 = $(this).val();
+ if(username1==''){
+ $(this).val('输入医生编号');
+ }
+});
+$("#tea_password_hide").focus(function(){
+ var username1 = $(this).val();
+ if(username1=='输入密码'){
+ $(this).val('');
+ }
+});
+$("#tea_password_hide").focusout(function(){
+ var username1 = $(this).val();
+ if(username1==''){
+ $(this).val('输入密码');
+ }
+});
+/*管理员登录信息验证*/
+$("#sec_username_hide").focus(function(){
+ var username2= $(this).val();
+ if(username2=='输入管理员账号'){
+ $(this).val('');
+ }
+});
+$("#sec_username_hide").focusout(function(){
+ var username2 = $(this).val();
+ if(username2==''){
+ $(this).val('输入管理员账号');
+ }
+});
+$("#sec_password_hide").focus(function(){
+ var username2 = $(this).val();
+ if(username2=='输入密码'){
+ $(this).val('');
+ }
+});
+$("#sec_password_hide").focusout(function(){
+ var username2 = $(this).val();
+ if(username2==''){
+ $(this).val('输入密码');
+ }
+});
+</script>
+</head>
+
+<body>
+<div id="tab">
+  <ul class="tab_menu">
+    <li class="selected">用户登录</li>
+    <li>医生登录</li>
+    <li>管理员登录</li>
+  </ul>
+
+  <div class="tab_box">
+    <!-- 用户登录开始 -->
+    <div>
+      <div class="stu_error_box"></div>
+      <form action="index" method="post" class="stu_login_error">
+        <div id="username">
+          {{#msg}}
+          <div style="text-align: center;"><h2>{{.}}</h2></div>
+          {{/msg}}
+          <label>用&nbsp;户&nbsp名：</label>
+          <input type="text" id="stu_username_hide" name="username" value="输入学号" nullmsg="学号不能为空！" datatype="s6-18" errormsg="学号范围在6~18个字符之间！" sucmsg="学号验证通过！"/>
+          <!--ajaxurl="demo/valid.jsp"-->
+        </div>
+        <div id="password">
+          <label>密&nbsp;&nbsp;&nbsp;码：</label>
+          <input type="password" id="stu_password_hide" name="password" value="输入密码" nullmsg="密码不能为空！" datatype="*6-16" errormsg="密码范围在6~16位之间！" sucmsg="密码验证通过！"/>
+        </div>
+        <div id="remember">
+          <input type="checkbox" name="remember">
+          <label>记住密码</label>
+        </div>
+        <div id="login">
+          <button type="submit">登录</button>
+        </div>
+      </form>
+    </div>
+   <!-- 用户登录结束-->
+   <!-- 医生登录开始-->
+    <div class="hide">
+     <div class="tea_error_box"></div>
+      <form action="index1" method="post" class="tea_login_error">
+        <div id="username1">
+          <label>医生编号：</label>
+          <input type="text" id="tea_username_hide" name="username" value="输入医生编号" nullmsg="医生编号不能为空！" datatype="s6-18" errormsg="医生编号范围在6~18个字符之间！" sucmsg="医生编号验证通过！"/>
+          <!--ajaxurl="demo/valid.jsp"--> 
+        </div>
+        <div id="password1">
+          <label>密&nbsp;&nbsp;&nbsp;码：</label>
+          <input type="password" id="tea_password_hide" name="password" value="输入密码" nullmsg="密码不能为空！" datatype="*6-16" errormsg="密码范围在6~16位之间！" sucmsg="密码验证通过！"/>
+        </div>
+
+        <div id="remember1">
+          <input type="checkbox" name="remember">
+          <label>记住密码</label>
+        </div>
+        <div id="login1">
+          <button type="submit">登录</button>
+        </div>
+      </form>
+    </div>
+     <!-- 医生登录结束-->
+     <!-- 管理员登录开始-->
+    <div class="hide">
+    <div class="sec_error_box"></div>
+      <form action="index2" method="post" class="sec_login_error">
+        <div id="username2">
+          <label>管理员账号：</label>
+          <input type="text" id="sec_username_hide" name="username" value="输入管理员账号" nullmsg="管理员账号不能为空！" datatype="s6-18" errormsg="管理员账号范围在6~18个字符之间！" sucmsg="管理员账号验证通过！"/>
+          <!--ajaxurl="demo/valid.jsp"-->
+        </div>
+        <div id="password2">
+          <label>密&nbsp;&nbsp;&nbsp;码：</label>
+          <input type="password" id="sec_password_hide" name="password" value="输入密码" nullmsg="密码不能为空！" datatype="*6-16" errormsg="密码范围在6~16位之间！" sucmsg="密码验证通过！"/>
+        </div>
+        <div id="remember2">
+          <input type="checkbox" name="remember">
+          <label>记住密码</label>
+        </div id="register">
+		<div>
+		  <button type="submit" onclick="document.location='register.html'">注册</button>
+		</div>
+        <div id="login2">
+          <button type="submit">登录</button>
+        </div>
+      </form>
+    </div>
+     <!-- 管理员登录结束-->
+  </div>
+</div>
+<div class="screenbg">
+  <ul>
+    <li><a href="javascript:;"><img src="images/h.jpg"></a></li>
+    <li><a href="javascript:;"><img src="images/1.jpg"></a></li>
+    <li><a href="javascript:;"><img src="images/2.jpg"></a></li>
+  </ul>
+</div>
+</body>
+</html>

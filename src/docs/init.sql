@@ -1,0 +1,1 @@
+create database pesystem default charset utf8 COLLATE utf8_general_ci;

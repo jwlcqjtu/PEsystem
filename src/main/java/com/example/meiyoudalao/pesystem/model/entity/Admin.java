@@ -8,8 +8,8 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer adminid;
-    private String  username;
-    private String  password;
+    private String  username2;
+    private String  password2;
 
     public Integer getAdminid() {
         return adminid;
@@ -20,20 +20,20 @@ public class Admin {
     }
 
 
-    public String getUsername() {
-        return username;
+    public String getUsername2() {
+        return username2;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername2(String username2) {
+        this.username2 = username2;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassword2() {
+        return password2;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword2(String password2) {
+        this.password2 = password2;
     }
 
 
